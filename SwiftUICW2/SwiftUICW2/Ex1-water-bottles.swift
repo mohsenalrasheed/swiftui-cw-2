@@ -25,7 +25,7 @@ struct Exercise1: View {
                 
                 Text("اسمك \(name)")
                 TextField("ضع اسمك هنا", text: $name)
-                Stepper("عدد العلب التي تتعهد هي: \(water)  بشربها", value: $water, in: 1...10)
+                Stepper("عدد العلب التي تتعهد هي: \(water)", value: $water, in: 1...10)
                 
                 Text("أتعهد أنا المدعو \(name) بشرب عدد \(water) من علب الماء يومياً")
                 

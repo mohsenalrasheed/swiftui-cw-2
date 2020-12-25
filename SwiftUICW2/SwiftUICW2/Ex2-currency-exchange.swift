@@ -7,6 +7,9 @@
 import SwiftUI
 
 struct Exercise2: View {
+    
+    @State var dinars = ""
+    
     var body: some View {
         
         ZStack {
@@ -26,7 +29,7 @@ struct Exercise2: View {
                         .multilineTextAlignment(.center)
                         .padding()
                     
-                    Text("استبدل هذا ب Text Field")
+                    TextField("ضع القيمة بالدينار", text: $dinars)
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
                         .keyboardType(.decimalPad)
@@ -38,7 +41,8 @@ struct Exercise2: View {
                                 .scaledToFit()
                                 .frame(width: 50)
                             
-                            Text("0")
+                            let dollars = (Double(dinars) ?? 0) * 3.28
+                            Text("\(dollars)")
                         }
                         HStack(spacing: 40){
                             Image("uk")
@@ -46,14 +50,17 @@ struct Exercise2: View {
                                 .scaledToFit()
                                 .frame(width: 50)
                             
-                            Text("0")
+                            let pounds = (Double(dinars) ?? 0) * 2.46
+                            Text("\(pounds)")
                         }
                         HStack(spacing: 40){
                             Image("eu")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 50)
-                            Text("0")
+                            
+                            let euros = (Double(dinars) ?? 0) * 2.70
+                            Text("\(euros)")
                         }
                     }.padding(.top, 50)
                     Spacer()
@@ -66,5 +73,6 @@ struct Exercise2: View {
 struct Exercise2_Previews: PreviewProvider {
     static var previews: some View {
         Exercise2()
+            .previewDevice("iPhone 12")
     }
 }
